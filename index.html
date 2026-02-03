@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>for arie 🖤</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- =======================
+       SCREEN 0: INTRO
+       ======================= -->
+  <section class="screen active" id="screenIntro">
+    <div class="card">
+      <h1>for arie 🖤</h1>
+      <p>i made this for you. just for you.</p>
+      <button class="btn" id="btnStart">start</button>
+    </div>
+  </section>
+
+  <!-- =======================
+       SCREEN 1: LOVE LETTER
+       ======================= -->
+  <section class="screen" id="screenNote">
+    <div class="card">
+      <h2>mamas…</h2>
+
+      <p class="letter">
+        i made this because you deserve something that feels private — like a soft room only we can walk into.<br><br>
+        i love you in a way that’s steady. the kind that doesn’t flinch. the kind that chooses you on purpose.<br><br>
+        will you please explain what you did to my hear that i cant stop thinking of you??!<br><br>
+        keep going. i have one thing i need to ask you.
+      </p>
+
+      <button class="btn" id="btnToAsk">continue</button>
+    </div>
+  </section>
+
+  <!-- =======================
+       SCREEN 2: VALENTINE ASK
+       ======================= -->
+  <section class="screen" id="screenAsk">
+    <div class="card">
+      <h2>one question…</h2>
+      <p id="preAskLine" class="soft-text">don’t laugh at me 😭</p>
+
+      <button id="revealAskBtn" class="btn">okay… i’m ready</button>
+
+      <div id="askBlock" class="ask-block">
+        <h2 class="ask-title">will you be my valentine? 🖤</h2>
+
+        <div class="btn-row">
+          <button id="yesBtn" class="btn">yes</button>
+          <button id="noBtn" class="btn-ghost">no</button>
+        </div>
+
+        <p id="yesMsg" class="soft-text"></p>
+
+        <button class="btn" id="btnToPrivate">continue 😌</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================
+       SCREEN 3: PRIVATE HUB (locked by phrase)
+       ======================= -->
+  <section class="screen" id="screenPrivateHub">
+    <div class="card">
+      <h2>private drawer 🖤</h2>
+      <p class="soft-text">type the phrase.</p>
+
+      <div class="row">
+        <input id="phraseInput" class="input" type="password" placeholder="type it here…" />
+        <button id="phraseBtn" class="btn">unlock</button>
+      </div>
+
+      <p id="phraseMsg" class="soft-text"></p>
+
+      <div id="privateButtons" class="private-buttons">
+        <div class="status-line">
+          <span>photos</span>
+          <span id="statusPhotos" class="status-badge">🔒</span>
+        </div>
+
+        <div class="status-line">
+          <span>videos</span>
+          <span id="statusVideos" class="status-badge">🔒</span>
+        </div>
+
+        <div class="status-line">
+          <span>voice note</span>
+          <span id="statusAudio" class="status-badge">🔒</span>
+        </div>
+
+        <button id="btnPhotos" class="btn" disabled>open photos 🖤</button>
+        <button id="btnVideos" class="btn" disabled>open videos 🎬</button>
+        <button id="btnAudio" class="btn" disabled>play voice note 🎧</button>
+
+        <button id="btnBackHome" class="btn-ghost">back</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================
+       SCREEN 4: PHOTOS
+       ======================= -->
+  <section class="screen" id="screenPhotos">
+    <div class="card">
+      <h2>photos 🖤</h2>
+      <p class="soft-text">next/prev + captions.</p>
+
+      <div class="media-wrap">
+        <img id="spicyPhoto" class="photo" src="" alt="photo" />
+        <p id="spicyCaption" class="caption"></p>
+      </div>
+
+      <div class="btn-row">
+        <button id="prevPhoto" class="btn-ghost">prev</button>
+        <button id="nextPhoto" class="btn">next</button>
+      </div>
+
+      <div class="btn-row">
+        <button id="btnPhotosBack" class="btn-ghost">back to drawer</button>
+        <button id="btnPanicFromPhotos" class="btn-ghost">safe</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================
+       SCREEN 5: VIDEOS
+       ======================= -->
+  <section class="screen" id="screenVideos">
+    <div class="card">
+      <h2>videos 🎬</h2>
+      <p class="soft-text">pick one. press play.</p>
+
+      <div class="btn-row">
+        <button id="btnVid1" class="btn">video 1</button>
+        <button id="btnVid2" class="btn-ghost">video 2</button>
+      </div>
+
+      <video id="videoPlayer" class="video" controls playsinline></video>
+      <p id="videoCaption" class="caption"></p>
+
+      <div class="btn-row">
+        <button id="btnVideosBack" class="btn-ghost">back to drawer</button>
+        <button id="btnPanicFromVideos" class="btn-ghost">safe</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================
+       CONSENT MODAL
+       ======================= -->
+  <div id="consentModal" class="modal">
+    <div class="modal-card">
+      <h3 id="consentTitle">private section 🖤</h3>
+      <p id="consentText" class="soft-text">
+        you good to continue? you can always come back later.
+      </p>
+      <div class="btn-row">
+        <button id="consentYes" class="btn">yes, continue</button>
+        <button id="consentNo" class="btn-ghost">not yet</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =======================
+       AUDIO MODAL
+       ======================= -->
+  <div id="audioModal" class="modal">
+    <div class="modal-card">
+      <h3>voice note 🎧</h3>
+      <p class="soft-text">press play when you’re alone 🖤</p>
+      <audio id="audioPlayer" controls></audio>
+      <div class="btn-row">
+        <button id="audioClose" class="btn-ghost">close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =======================
+       MEME BUTTON + POPUP
+       ======================= -->
+  <button id="memeBtn" class="meme-fab" type="button">🖤</button>
+
+  <div id="memeModal" class="modal">
+    <div class="modal-card">
+      <h3>meme break 😭</h3>
+      <img id="memeImg" class="meme-img" alt="meme" />
+      <p id="memeCap" class="caption"></p>
+      <div class="btn-row">
+        <button id="memeNext" class="btn">another</button>
+        <button id="memeClose" class="btn-ghost">close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
